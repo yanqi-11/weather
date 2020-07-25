@@ -1,0 +1,24 @@
+function sliceTime(time) {
+  return time.slice(11, 16)
+}
+
+function sliceImg(icon, time) {
+  var t = time.slice(11, 13);
+  if (t >= 6 && t < 18) {
+    return icon;
+  } else {
+    var arr = ["100", "103", "104", "300", "301", "406", "407"];
+    var p = arr.indexOf(icon);
+    if (p !== -1) {
+      return icon + 'n';
+    } else {
+      return icon;
+    }
+  }
+}
+
+
+module.exports = {
+  sliceTime: sliceTime,
+  sliceImg: sliceImg
+}

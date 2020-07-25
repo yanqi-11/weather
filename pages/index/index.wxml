@@ -1,0 +1,34 @@
+<!--pages/index/index.wxml-->
+<view class="big {{ishei ? 'hei' : ''}}">
+	<view class="box">{{nows.text}}</view>
+	<view class="temperature">{{nows.feelsLike}}°</view>
+	<view class="litter">
+
+		<view class="litter_t1">{{nows.windDir}}</view>
+		<view class="litter_t2">{{nows.vis}}</view>
+
+	</view>
+	<wxs src="wx.wxs" module="_"></wxs>
+	<scroll-view class="scroll" scroll-x="true">
+		<view class="big_2">
+			<view class="big_3" wx:for="{{hours}}" wx:key="index">
+				<view>{{_.sliceTime(item.fxTime)}}</view>
+				<image src="../../img/{{_.sliceImg(item.icon,item.fxTime)}}.png" class="img"></image>
+				<view>{{item.text}}</view>
+				<view>{{item.temp}}°C</view>
+			</view>
+		</view>
+	</scroll-view>
+
+
+	<scroll-view class="scroll_1" scroll-y="true">
+		<view class="scroll_2">
+			<view class="scroll_3" wx:for="{{daily}}" wx:key="index">
+				<view>{{item.fxDate}}</view>
+				<view>{{item.textDay}}</view>
+				<view>{{item.tempMax}}°C~{{item.tempMin}}°C</view>
+			</view>
+		</view>
+	</scroll-view>
+
+</view>
